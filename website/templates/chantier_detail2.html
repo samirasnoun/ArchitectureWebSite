@@ -1,0 +1,86 @@
+{% extends "base2.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Architect{% endblock %}
+
+{% block content %}
+
+{% include "menu.html" %}
+
+<div class="row">
+            <!-- Caroussel -->
+            <div class="col-md-7">
+               
+               <!-- id sert à identifier le caroussel, pour les controls -->
+               <div id="bestCarsCarousel" class="carousel slide" data-ride="carousel">
+                  
+                  <!-- Indicators : identifier les élements du caroussel -->
+                  <ol class="carousel-indicators">
+
+					    {% for image in chantier.get_images_chantier  %}
+
+						    {% if forloop.counter0 = 0 %}
+						 		<li data-target="#bestCarsCarousel" data-slide-to="{{forloop.counter0}}" class="active"></li>
+						    {% else %}
+						    	<li data-target="#bestCarsCarousel" data-slide-to="{{forloop.counter0}}" ></li>
+
+						    {% endif %}
+
+						    {% empty %}
+						    <li>No images</li>
+					    {% endfor %}
+
+                  </ol>
+
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner">
+               
+				
+					{%for image in chantier.get_images_chantier %}
+					          {% if forloop.counter0 = 0 %}            
+
+					                     <div class="item active">
+					                   
+					          
+					          {% else %}
+
+					                     <div class="item">
+
+					          {% endif %}
+
+
+					                        <img src="{% static image.get__absolute_url %}">
+					                        <div class="carousel-caption"  >
+					                           <h3>{{ image.title }}</h3>
+					                           <p>{{ image.caption }}</p>
+					                        </div>
+					                     </div>
+
+					{% endfor %}
+
+                  </div>
+                                  
+               </div>
+                               
+               <script type="text/javascript">
+                  var options = {
+                  interval: 1000,
+                  
+                  wrap: true
+                  };
+                  $('#bestCarsCarousel').carousel(options);
+               </script>
+            
+            </div>
+           
+            <!-- Paragraphe texte-->
+            <div class="col-md-2">
+               <p>
+                  {{ chantier.text }}
+            </div>
+         </div>
+
+{% include "footer.html" %}
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base2.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Profil Amar Lounas - Architect{% endblock %}
+
+{% block content %}
+
+{% include "menu.html" %}
+
+<div class="row"> 
+
+ <div class="col-md-11">
+            <div class="col-md-6">
+               
+
+               <div id="photo_profil" >
+                  
+
+                     <div class="photo_profil">
+                        <img src="{% static 'profil.png' %}" class="photo_profil">
+                        <div class="carousel-caption"  >
+
+                        </div>
+                     </div>
+
+            </div>
+                        </div>
+           
+            <!-- Paragraphe texte-->
+            <div class="col-md-5" id="text-profil">
+               
+               <p>
+               
+                  D’abord, il étudie les sciences et techniques à l’Université de Tizi-Ouzou (Algérie) 
+et à l’Ecole Spéciale des Travaux Publics - ESTP (paris) puis l’architecture à l’Ecole d’Architecture de Paris la Villette (UP 6) et en fin l’urbanisme à Institut d’Urbanisme et d’Aménagement Régional d’Aix en Provence.
+<br>
+<br>
+Architecte DPLG et Urbaniste IUAR. Installé à Paris et à Alger 
+Il a collaboré avec différentes agences : <strong> Claude Vasconi, Pascale Seurin, Arep, Jean Philippe Pargade, ARCHI-TECTURE(Munteanu- Perianu- Munteanu) </strong> à Paris
+<br>
+<strong> Tangram Architectes </strong> à Marseille 
+<br>
+
+<br>
+Il se réinstalle à paris après six années passées à Marseille et Alger. Aujourd’hui, il travaille sur des projets en France et en Algérie.
+<br>
+<br>
+Une grande diversité de projets et d’échelles sont abordées : Equipement publics, équipements sportifs, Hospitaliers, Hôteliers, Habitats, Aménagements urbains, Aménagement intérieur et Design. 
+            
+               </p>
+
+            </div>
+
+
+   </div>
+
+</div>
+     
+
+
+
+
+
+{% include "footer.html" %}
+
+{% endblock %}

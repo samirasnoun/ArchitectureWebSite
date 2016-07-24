@@ -1,0 +1,83 @@
+{% extends "base4.html" %} 
+
+{% load staticfiles %}
+
+{% block title %}Amar Lounas Architect{% endblock %}
+
+{% block content %}
+
+{% include "menu.html" %} 
+
+    <div id="portfolio">
+        <div class="container">
+
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="filters_container">
+                        <ul id="filters">
+                            <li><a href="#" data-filter="*" class="active">All</a></li>
+                            <li class="separator">/</li>
+
+
+                            {% for key, value in niveaux %}
+                            <li><a href="#" data-filter=".{{key}}">{{value}}</a></li>
+                            <li class="separator">/</li>
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                </div>
+            </div>   
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="gallery_container">
+
+            {% for image in images %}
+
+                {% if image.get_chantier %}
+
+                        <div class="photo {{image.get_chantier.get_niveau}} {{image.get_media.get_niveau}}">
+                            <img src="{% static image.get__absolute_url %}" class="img-responsive" />
+                            <a href="{{ image.get_chantier.get_absolute_url }}" class="mask">
+                                <h3>{{image.get_chantier.title}}  </h3>
+                                <small>{{image.get_chantier.get_niveau_v}}  </small>
+                                <div class="more">+</div>
+                            </a>
+                        </div>
+
+                {%endif%}
+
+                {% if image.get_media %}
+
+
+                        <div class="photo {{image.get_media.get_niveau}}  {{image.get_chantier.get_niveau}}">
+                            <img src="{% static image.get__absolute_url %}" class="img-responsive" />
+                            <a href="{{ image.get_media.get_absolute_url }}" class="mask">
+                                <h3>{{image.get_media.title}} </h3>
+                                <small>{{image.get_media.get_niveau_v}}</small>
+                                <div class="more">+</div>
+                            </a>
+                        </div>
+
+                {%endif%}
+	        
+            {% endfor %} 
+
+
+                   </div>
+                </div>
+            </div>  
+
+        </div>
+
+    </div>
+
+{% include "footer.html" %}
+
+  
+{% endblock %}
+

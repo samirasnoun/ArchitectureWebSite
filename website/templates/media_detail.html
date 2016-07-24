@@ -1,0 +1,96 @@
+{% extends "base4.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Architect{% endblock %}
+
+{% block content %}
+
+{% include "menu.html" %}
+
+
+<div class="row">
+ <div class="col-md-12">
+            <!-- Caroussel -->
+            <div class="col-md-8">
+               
+               <!-- id sert à identifier le caroussel, pour les controls -->
+               <div id="bestCarsCarousel" class="carousel slide" data-ride="carousel">
+                  
+                  <!-- Indicators : identifier les élements du caroussel -->
+                  <ol class="carousel-indicators">
+
+					    {% for image in media.get_images_media  %}
+
+						    {% if forloop.counter0 = 0 %}
+						 		<li data-target="#bestCarsCarousel" data-slide-to="{{forloop.counter0}}" class="active"></li>
+						    {% else %}
+						    	<li data-target="#bestCarsCarousel" data-slide-to="{{forloop.counter0}}" ></li>
+
+						    {% endif %}
+
+						    {% empty %}
+						    <li>No images</li>
+					    {% endfor %}
+
+                  </ol>
+
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner">
+               
+				
+					{%for image in media.get_images_media %}
+					          {% if forloop.counter0 = 0 %}            
+
+					                     <div class="item active">
+					                   
+					          
+					          {% else %}
+
+					                     <div class="item">
+
+					          {% endif %}
+
+
+					                        <img src="{% static image.get__absolute_url %}">
+					                        <div class="carousel-caption"  >
+					                           <h3>{{ image.title }}</h3>
+					                           <p>{{ image.caption }}</p>
+					                        </div>
+					                     </div>
+
+					{% endfor %}
+
+                  </div>
+                       <!-- Controls -->
+                  <a class="left carousel-control" href="#bestCarsCarousel" data-slide="prev">
+                     <span class="glyphicon glyphicon-chevron-left"></span>
+                  </a>
+                  <a class="right carousel-control" href="#bestCarsCarousel" data-slide="next">
+                     <span class="glyphicon glyphicon-chevron-right"></span>
+                  </a>           
+               </div>
+                               
+               <script type="text/javascript">
+                  var options = {
+                  interval: 100,
+                  
+                  wrap: true
+                  };
+                  $('#bestCarsCarousel').carousel(options);
+               </script>
+            
+            </div>
+           
+            <!-- Paragraphe texte-->
+            <div class="col-md-4">
+               <p>
+                  {{ media.text }}
+            </div>
+         </div>
+
+ </div>
+ 
+{% include "footer.html" %}
+
+{% endblock %}

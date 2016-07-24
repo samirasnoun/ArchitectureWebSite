@@ -1,0 +1,239 @@
+{% extends "base4.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Architect{% endblock %}
+
+{% block content %}
+
+{% include "menu.html" %}
+<div class="container-fluid"> 
+
+<div class="row">
+
+    
+
+
+
+
+        <div class="col-sm-6 col-md-3 col-lg-3">
+
+                       <p>  
+                            TALLUNT PARIS
+                            <br>
+                            4 rue Pasteur
+                            <br>
+                            75011 Paris
+                            <br>
+                            tel fr: +33(0)6 95 55 78 01
+                            <br>
+
+                            fax: +33 (0) 9 52 34 34 32
+                       </p>
+
+
+                        <p class="adresse_mail">
+                           <a href="mailto:contact@alounasarchitecture.com" rel="nofollow">contact@alounasarchitecture.com</a>
+                        </p>
+                        </br>  
+                     
+
+        </div>
+
+
+        <div class="col-sm-6 col-md-3 col-lg-3">
+
+                       <p>  
+                            TALLUNT ALGER
+                            <br>
+                            4 rue Pasteur
+                            <br>
+                            75011 Paris
+                            <br>
+                            tel alg: +213 552 219 876
+                            <br>
+                            fax: +33 (0) 9 52 34 34 32
+                       </p>
+
+
+                        <p class="adresse_mail">
+                           <a href="mailto:contact@alounasarchitecture.com" rel="nofollow">contact@alounasarchitecture.com</a>
+                        </p>
+                        </br>  
+                     
+
+        </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+
+                       <p>  
+                            TALLUNT BOGHNI
+                            <br>
+                            4 rue Pasteur
+                            <br>
+                            75011 Paris
+                            <br>
+                            tel alg: +213 552 219 876
+                            <br>
+                            fax: +33 (0) 9 52 34 34 32
+                       </p>
+
+
+                        <p class="adresse_mail">
+                           <a href="mailto:contact@alounasarchitecture.com" rel="nofollow">contact@alounasarchitecture.com</a>
+                        </p>
+                        </br>  
+                     
+
+        </div>
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+
+
+    
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="col-md-11">
+<form class="form-horizontal" action="." method="POST">
+{% csrf_token %}
+
+
+<div class="form-group  input-sm">
+  <label for="nameField" class="col-xs-3 input-sm">Nom</label>
+  <div class="col-xs-7">
+     <input type="text" class="form-control input-sm" {% if form.nameField.value %} value="{{ form.nameField.value }}" {% endif %} id="id_nameField" name="nameField" id="nameField" placeholder="Entrer votre nom" />
+  </div>
+   
+
+
+{% for error in form.nameField.errors %}  
+
+   <p class="text-danger"> {{ error }} </p>
+
+{% endfor %}  
+
+
+
+</div>
+
+<div class="form-group input-sm">
+  <label for="nameField" class="col-xs-3 input-sm">Prénom</label>
+    <div class="col-xs-7">
+      <input type="text" class="form-control input-sm" {% if form.firstNameField.value %} value="{{ form.firstNameField.value }}" {% endif %} id="id_firstNameField" name="firstNameField" id="firstNameField" placeholder="Entrez votre prénom" />
+    </div>
+    
+
+
+
+{% for error in form.firstNameField.errors %}  
+
+   <p class="text-danger"> {{ error }} </p>
+
+{% endfor %}  
+
+
+
+</div>
+
+
+<div class="form-group input-sm">
+  <label for="emailField" class="col-xs-3 input-sm">Email</label>
+    <div class="col-xs-7">
+    
+         <input type="email" class="form-control input-sm" {% if form.emailField.value %} value="{{ form.emailField.value }}" {% endif %} id="id_emailField" name="emailField" id="emailField" placeholder="Entrer votre Email" />
+   
+    
+    </div>
+
+   
+
+
+
+{% for error in form.emailField.errors %}  
+
+   <p class="text-danger"> {{ error }} </p>
+
+{% endfor %}  
+
+
+</div>
+
+<div class="form-group input-sm">
+  <label for="phoneField" class="col-xs-3 input-sm">Téléphone</label>
+    <div class="col-xs-7">
+      <input type="text" class="form-control input-sm" {% if form.phoneField.value %} value="{{ form.phoneField.value }}" {% endif %} id="id_phoneField" name="phoneField" id="phoneField" placeholder="Entrer votre numéro de téléphone" />
+  </div>
+
+ 
+
+{% for error in form.phoneField.errors %}  
+
+   <p class="text-danger"> {{ error }} </p>
+
+{% endfor %} 
+
+
+
+
+</div>
+
+<div class="form-group input-sm">
+<label for="descField" class="col-xs-3 input-sm">Description</label>
+<div class="col-xs-7">
+<textarea class="form-control input-sm" {% if form.descField.value %} value="{{ form.descField.value }}" {% endif %} id="id_descField" name="descField" placeholder="Entrer un commentaire"></textarea>
+
+
+
+
+
+</div>
+
+{% for error in form.descField.errors %}  
+
+   <p class="text-danger"> {{ error }} </p>
+
+{% endfor %} 
+
+</div>
+<div class="col-xs-10 col-xs-offset-8 input-sm">
+<button type="submit" class="btn btn-sm btn-primary">Envoyer </button> <button type="reset" class="btn btn-sm btn-default">Effacer</button>
+</div>
+
+</form>
+
+
+
+
+
+</div>
+
+</div>
+
+</div>
+{% include "footer.html" %}
+
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base2.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Amar Lounas Architect{% endblock %}
+
+
+
+{% block content %}
+
+{% include "menu.html" %}
+
+      <div class="row">
+        <div class="col-md-11">
+          {% for image in images_list %}
+                    
+                        <div class="view view-sixth">
+                             
+                             <img src="{% static image.get_thumb %}" class="img-thumbnail"  />
+                             <div class="mask">
+                                 <h2>{{ image.title|truncatechars:20 }} </h2>
+                                 <a href="{{ image.get_chantier.get_absolute_url }}" class="info">Read More</a>
+                             </div>
+                        </div> 
+
+          {% endfor %} 
+
+        </div>
+
+      </div>
+
+
+{% include "footer.html" %}
+  
+{% endblock %}
+

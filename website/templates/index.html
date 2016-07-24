@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+	<h2>Welcome to the Gallery!</h2>
+
+	<p>
+		Here you find pictures of various items. Below are some highlighted items; use the link at the bottom to see the full listing.
+	</p>
+
+	<h3>Showcase</h3>
+		<table>
+			<tr>
+			{% for image in images_list %}
+				<td>
+					<a href="{{ image.chantier }}"><b>{{ image.Chantier.title }} his id = {{ image.id }}</b><br />
+						{% if image %}
+
+						    <a href="{{ image.Chantier.get_absolute_url }}" target="_blank"> 
+                                <img class="photo_mosaique"  src="{% static image.photo %}" alt="{{ image.Chantier.title }}" >
+                              </a>
+						
+						{% else %}
+
+						    <br>
+							    <span>No images (yet) for {{image.title}} </span>
+							<br>
+
+						{% endif %}
+					</a>
+				</td>
+
+			{% endfor %}
+			</tr>
+		</table>
+	
+{% endblock %}

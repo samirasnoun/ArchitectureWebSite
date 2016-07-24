@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+
+<h1>{{ chantier.title }}</h1>
+<p>Title: {{ chantier }}</p>
+<a href="{{ chantier.get_absolute_url }}">{{ chantier.title }}</a>
+<p>Photos: {{ chantier.get_images_chantier }}</p>
+
+
+<ul>
+    {% for image in chantier.get_images_chantier  %}
+    <br>
+    <a href="{{ image.get_url }}"> immage : {{ image.title }}</a>
+    <br>
+    <img class='photo_mosaique'  src="{% static image.photo%}"/>
+    {% empty %}
+    <li>No images</li>
+    {% endfor %}
+</ul>
+
+
+
+
+
+{% endblock %}
+

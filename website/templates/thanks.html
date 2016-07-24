@@ -1,0 +1,60 @@
+{% extends "base2.html" %}
+
+
+
+{% load staticfiles %}
+
+{% block title %}Architect{% endblock %}
+
+
+{% block content %}
+
+
+{% include "menu.html" %}
+
+
+
+
+         <div class="row">
+
+ <div class="col-md-11">
+
+           
+            <!-- Paragraphe texte-->
+            <div class="col-md-6">
+
+<div class="alert alert-success">
+         Merci <strong> {{ prenom|upper  }} !</strong>
+
+</div>
+
+               <p>
+          
+                   	                  <br>
+                  <br>
+                  Nous allons prendre contact avec vous rapidement. 
+                  <br>
+                  <br>
+                  A très bientôt.
+               </p>
+            </div>
+
+
+   </div>
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+{% include "footer.html" %}
+
+
+{% endblock %}
+
