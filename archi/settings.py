@@ -21,7 +21,8 @@ print BASE_DIR
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'svuv+qdakre+p5wp4q9tv98pp&e0k0yy)z8(_47&(1o18+aud7'
+SECRET_KEY = os.environ.get('SECRET_KEY_DJANGO_AMAR')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -68,28 +69,7 @@ WSGI_APPLICATION = 'archi.wsgi.application'
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 
-"""
-        'default':{
-         'ENGINE': 'django.db.backends.mysql',
-         'NAME': 'ecomstore',
-         'USER': 'ecomstoreuser', 
-         'PASSWORD': 'ecomstoreuser',
-         'DATABASE_HOST': 'localhost',
-         'DATABASE_PORT': '3306',
-     }
 
-         'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-            'NAME': 'd8mch8abq3i2a7',                      # Or path to database file if using sqlite3.
-            # The following settings are not used with sqlite3:
-            'USER': 'eembjbgkusyjay',
-            'PASSWORD': 'liWRAKyEP1vBESJqlrogzh3ukn',
-            'HOST': 'ec2-54-163-227-94.compute-1.amazonaws.com',                      # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
-            'PORT': '5432',                      # Set to empty string for default.
-        }
-
-
-"""
 
 
 DATABASES = {
@@ -98,21 +78,21 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    },
 
 
 
 
         # Gandi database
-        # 'default': {
-        #     'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        #     'NAME': 'postgres',                      # Or path to database file if using sqlite3.
-        #     # The following settings are not used with sqlite3:
-        #     'USER': 'amar',
-        #     'PASSWORD': 'amarlounas',
-        #     'HOST': 'localhost',                      # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
-        #     'PORT': '5432',                      # Set to empty string for default.
-        # }
+         # 'default': {
+         #     'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+         #     'NAME': 'postgres',                      # Or path to database file if using sqlite3.
+         #     # The following settings are not used with sqlite3:
+         #     'USER': os.environ.get('DB_USER_GANDI'),
+         #     'PASSWORD': os.environ.get('DB_PASSWORD_GANDI'),
+         #     'HOST': 'localhost',                      # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
+         #     'PORT': '5432',                      # Set to empty string for default.
+         # }
 
 
 
@@ -135,9 +115,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 MEDIA_URL = '/media/'
 STATIC_URL = '/fonts/'
-STATIC_ROOT = 'static'
-#STATIC_URL = '/media/'
-#
+
+
 #Dev
 STATIC_ROOT = '/home/samir/workspace/django/django_site_articles/archi/website/static/'
 MEDIA_ROOT = '/home/samir/workspace/django/django_site_articles/archi/website/media/photos/projets/'
@@ -151,16 +130,12 @@ MEDIA_ROOT = '/home/samir/workspace/django/django_site_articles/archi/website/me
 
 
 STATICFILES_DIRS = (
-    #os.path.join(BASE_DIR, "website", "media" ),
-    #os.path.join(BASE_DIR, "website", "static" ),
     os.path.join(BASE_DIR, "website", "media" , "photos", "projets"),
     os.path.join(BASE_DIR, "website", "media" , "photos", "profil"),
     os.path.join(BASE_DIR, "website", "static" , "css"),
     os.path.join(BASE_DIR, "website", "static" , "js"),
     os.path.join(BASE_DIR, "website", "static" , "fonts"),
 )
-
-
 
 TEMPLATE_LOADERS = (
     ('django.template.loaders.cached.Loader', 
@@ -171,16 +146,16 @@ TEMPLATE_LOADERS = (
     ),
 )
 
-
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'setisamir2@gmail.com'
-EMAIL_HOST_PASSWORD = '15011982!z'
-DEFAULT_FROM_EMAIL = 'setisamir2@gmail.com'
-DEFAULT_TO_EMAIL = 'samir.asnoun@gmail.com'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER_DJANGO_AMAR')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD_DJANGO_AMAR')
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL_DJANGO_AMAR')
+DEFAULT_TO_EMAIL = os.environ.get('DEFAULT_TO_EMAIL_DJANGO_AMAR')
 
-ADMINS=(('Samir admin 1', 'samir.asnoun@gmail.com'), ('Samir admin 2', 'setisamir2@gmail.com'))
-MANAGERS=(('Samir Manager 1', 'setisamir@gmail.com'), ('Samir Manager 2', 'setisamir3@gmail.com'))
 
-#setisamir2 / milmilouloagh+sin immzwoura An i eole 
+
+
+ADMINS=((os.environ.get('ADMIN_1'), os.environ.get('ADMIN_1_MAIL')), (os.environ.get('ADMIN_2'), os.environ.get('ADMIN_2_MAIL')))
+MANAGERS=((os.environ.get('MANAGER_1'), os.environ.get('MANAGER_1_MAIL')), (os.environ.get('MANAGER_2'), os.environ.get('MANAGER_2_MAIL')))
