@@ -14,7 +14,6 @@ def get_aticle_default():
     return Article.objects.get(id=1)
 """
 
-
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, primary_key=True)
     date_of_birth = models.DateField(blank=True, null=True)
@@ -27,14 +26,6 @@ class Profile(models.Model):
 
     def __unicode__(self):
         return 'Profile for user {}'.format(self.user.username)
-
-
-
-
-
-
-
-
 
 class Image(models.Model):
     AFFI_PAGE_ACCUEIL = (
@@ -74,9 +65,6 @@ class Image(models.Model):
 
     def get_thumb(self):        
         return str(self.photo).replace('.jpg' , '.thumb.jpg')
-
-
-
 
 # Projet 
 class Chantier(models.Model): 

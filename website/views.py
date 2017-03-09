@@ -142,8 +142,8 @@ def index_ArtsArtisanat(request):
 
 
 
-
-def index_media_selection(request, code_projet):
+ 
+def index_media_selection(request, code_projet): 
     if code_projet:
         
         medias = Media.objects.filter(niveau1=code_projet)

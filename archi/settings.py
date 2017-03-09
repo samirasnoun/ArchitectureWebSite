@@ -12,14 +12,14 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 """ 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
+import os, setvars
 BASE_DIR =  os.path.dirname(os.path.dirname(__file__))
 
 print BASE_DIR
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
-
+print os.environ.get('SECRET_KEY_DJANGO_AMAR')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY_DJANGO_AMAR')
 

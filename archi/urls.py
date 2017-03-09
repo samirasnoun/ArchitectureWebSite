@@ -7,7 +7,7 @@ from website.views import *
 #from website.sitemap import *
 from django.contrib.sitemaps.views import sitemap
 from website.sitemaps import ChantierSitemap, MediaSitemap,  StaticViewSitemap
-
+ 
 
 sitemaps = { 'chantiers': ChantierSitemap, 'medias':MediaSitemap, 'static': StaticViewSitemap,}
 

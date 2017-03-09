@@ -46,7 +46,7 @@ class Contact2Form(ModelForm):
 
             
 
-       
+        
         
             return cleaned_data
     class Meta:
